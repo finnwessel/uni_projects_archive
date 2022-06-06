@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <p:card class="p-m-4 post">
+        <f:facet name="title">
+            <a href="/app/profile/#{author_id}">#{author_username}</a>
+        </f:facet>
+        <f:facet name="subtitle">
+            #{createdAt}
+        </f:facet>
+
+        <h:outputText value="#{content}" escape="false"/>
+
+        <h:form rendered="#{account.currentAccount.id == author_id}">
+            <div class="p-d-flex">
+                <div class="p-ml-auto">
+                    <p:commandButton
+                            icon="pi pi-trash"
+                            styleClass="ui-button-danger"
+                            action="#{post.deletePost(post_id)}"
+                            update=":postList"
+                            ajax="false"/>
+                </div>
+            </div>
+        </h:form>
+    </p:card>
+</ui:composition>

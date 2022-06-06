@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_start">
+
+    <fragment
+        android:id="@+id/nav_select"
+        android:name="de.hsflensburg.ctfgame.ui.select.SelectFragment"
+        android:label="@string/menu_select"
+        tools:layout="@layout/fragment_select" >
+        <action
+            android:id="@+id/action_nav_select_to_nav_lobby"
+            app:destination="@id/nav_lobby" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_start"
+        android:name="de.hsflensburg.ctfgame.ui.start.StartFragment"
+        android:label="@string/menu_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_nav_start_to_nav_prep"
+            app:destination="@id/nav_prep" />
+        <action
+            android:id="@+id/action_nav_start_to_nav_select"
+            app:destination="@id/nav_select" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_prep"
+        android:name="de.hsflensburg.ctfgame.ui.prep.PrepFragment"
+        android:label="@string/menu_prep"
+        tools:layout="@layout/fragment_prep" >
+        <action
+            android:id="@+id/action_nav_prep_to_nav_lobby"
+            app:destination="@id/nav_lobby" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_lobby"
+        android:name="de.hsflensburg.ctfgame.ui.lobby.LobbyFragment"
+        android:label="@string/menu_lobby"
+        tools:layout="@layout/fragment_lobby" >
+        <action
+            android:id="@+id/action_nav_lobby_to_nav_game"
+            app:destination="@id/nav_game" />
+        <action
+            android:id="@+id/action_nav_lobby_to_nav_start"
+            app:destination="@id/nav_start" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_game"
+        android:name="de.hsflensburg.ctfgame.ui.game.GameFragment"
+        android:label="@string/menu_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_game_to_nav_start"
+            app:destination="@id/nav_start"
+            app:enterAnim="@anim/fragment_open_enter" />
+        <action
+            android:id="@+id/action_nav_game_to_nav_game_stats"
+            app:destination="@id/nav_game_stats" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_game_stats"
+        android:name="de.hsflensburg.ctfgame.ui.gameStats.GameStatsFragment"
+        android:label="Game Stats"
+        tools:layout="@layout/fragment_game_stats" >
+        <action
+            android:id="@+id/action_nav_game_stats_to_nav_start"
+            app:destination="@id/nav_start" />
+    </fragment>
+</navigation>

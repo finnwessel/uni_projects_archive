@@ -1,0 +1,50 @@
+<ui:composition template="/components/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <p:card class="p-mt-5">
+            <h:form>
+                <p:messages id="msgs"/>
+
+                <h:panelGrid columns="3" cellpadding="7" styleClass="p-mb-3">
+                    <p:outputLabel for="username" value="Username:"/>
+                    <p:inputText id="username" value="#{account.newAccount.username}" required="true" label="Username">
+                        <f:validateLength minimum="2"/>
+                    </p:inputText>
+                    <p:message for="username" display="icon"/>
+
+                    <p:outputLabel for="email" value="e-Mail:"/>
+                    <p:inputText id="email" value="#{account.newAccount.email}" required="true" label="e-Mail">
+                        <f:validateLength minimum="2"/>
+                    </p:inputText>
+                    <p:message for="email" display="icon"/>
+
+                    <p:outputLabel for="firstname" value="First name:"/>
+                    <p:inputText id="firstname" value="#{account.newAccount.firstname}" required="true" label="First name">
+                        <f:validateLength minimum="2"/>
+                    </p:inputText>
+                    <p:message for="firstname" display="icon"/>
+
+                    <p:outputLabel for="lastname" value="Last name:"/>
+                    <p:inputText id="lastname" value="#{account.newAccount.lastname}" required="true" label="Last name">
+                        <f:validateLength minimum="2"/>
+                        <!--<p:ajax update="msgPassword" event="keyup"/>-->
+                    </p:inputText>
+                    <p:message for="lastname" display="icon"/>
+
+                    <p:outputLabel for="password" value="Password:"/>
+                    <p:inputText id="password" value="#{account.newAccount.password}" label="Password" required="true">
+                        <f:validateLength minimum="2"/>
+                    </p:inputText>
+                    <p:message for="password" id="msgPassword" display="icon"/>
+
+                </h:panelGrid>
+
+                <p:commandButton value="Register" update="@form" action="#{account.createAccount}" icon="pi pi-check"/>
+            </h:form>
+        </p:card>
+    </ui:define>
+</ui:composition>

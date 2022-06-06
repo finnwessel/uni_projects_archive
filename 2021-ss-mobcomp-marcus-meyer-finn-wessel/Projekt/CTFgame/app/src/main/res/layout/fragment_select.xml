@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="de.hsflensburg.ctfgame.ui.select.SelectViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/select_TextLayout1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="20dp"
+        app:startIconDrawable="@drawable/ic_baseline_videogame_asset_24"
+        android:hint="GAME ID"
+        app:counterEnabled="true"
+        app:counterMaxLength="@{viewModel.MAX_LOBBY_ID_LENGTH}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/select_TextLayout2"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/select_input_game_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="@{viewModel.MAX_LOBBY_ID_LENGTH}" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/select_TextLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
+        android:hint="NAME"
+        app:counterEnabled="true"
+        app:counterMaxLength="@{viewModel.MAX_PLAYER_NAME_LENGTH}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_TextLayout1"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/select_input_player_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="@{viewModel.MAX_PLAYER_NAME_LENGTH}"
+            android:inputType="textPersonName"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/select_button_join"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_join_game"
+        android:layout_marginVertical="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_TextLayout2"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

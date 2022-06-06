@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.Projekt.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\UNI\4. Semester\3D Engine Technology\2021-ss-3det-marcus-meyer-finn-wessel\Projekt\.idea\.idea.Projekt\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

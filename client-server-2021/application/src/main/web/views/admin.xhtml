@@ -1,0 +1,31 @@
+<ui:composition template="/components/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h:form id="accountTableForm">
+            <p:dataTable var="acc" value="#{admin.accounts}">
+                <p:column headerText="ID">
+                    <h:outputText value="#{acc.id}"/>
+                </p:column>
+                <p:column headerText="Username">
+                    <h:outputText value="#{acc.username}"/>
+                </p:column>
+                <p:column headerText="Firstname">
+                    <h:outputText value="#{acc.firstname}"/>
+                </p:column>
+                <p:column headerText="Lastname">
+                    <h:outputText value="#{acc.lastname}"/>
+                </p:column>
+                <p:column headerText="Action">
+                    <p:commandButton icon="pi pi-trash"
+                                     title="Delete"
+                                     disabled="#{acc.id eq 1}"
+                                     actionListener="#{admin.deleteAccount(acc.id)}"
+                                     ajax="false" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

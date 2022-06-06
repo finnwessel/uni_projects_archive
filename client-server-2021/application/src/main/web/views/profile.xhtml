@@ -1,0 +1,48 @@
+<ui:composition template="/components/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <ui:param name="acc" value="#{account.currentAccount}" />
+        <p:card class="p-my-2">
+            <h:form>
+                <div class="p-d-flex p-flex-column">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <h3>Username:</h3>
+                        <p:inplace class="p-text-bold p-pl-4">
+                            <p:inputText value="#{acc.username}" required="true" label="text"/>
+                        </p:inplace>
+                    </div>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <h3>eMail:</h3>
+                        <p:inplace class="p-text-bold p-pl-4">
+                            <p:inputText value="#{acc.email}" required="true" label="text"/>
+                        </p:inplace>
+                    </div>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <h3>Firstname:</h3>
+                        <p:inplace class="p-text-bold p-pl-4">
+                            <p:inputText value="#{acc.firstname}" required="true" label="text"/>
+                        </p:inplace>
+                    </div>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <h3>Lastname:</h3>
+                        <p:inplace class="p-text-bold p-pl-4">
+                                <p:inputText value="#{acc.lastname}" required="true" label="text"/>
+                        </p:inplace>
+                    </div>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <h3>Public:</h3>
+                        <p:selectBooleanCheckbox value="#{acc.publicProfile}"/>
+                    </div>
+                    <p:commandButton value="Save changes" update="@form" action="#{account.updateAccount}" />
+                </div>
+            </h:form>
+        </p:card>
+        <ui:include src="../components/follow.xhtml">
+            <ui:param name="followerList" value="#{account.getFollower()}"/>
+            <ui:param name="followsList" value="#{account.getFollows()}"/>
+        </ui:include>
+    </ui:define>
+</ui:composition>

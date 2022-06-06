@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <p:row>
+            <p:card>
+                <f:facet name="title">
+                    <p>Follows (#{followsList.size()})</p>
+                </f:facet>
+                <p:dataList value="#{followsList}" var="follows">
+                    <a href="/app/profile/#{follows.id}">#{follows.username}</a>
+                </p:dataList>
+            </p:card>
+
+            <p:card>
+                <f:facet name="title">
+                    <p>Follower (#{followerList.size()})</p>
+                </f:facet>
+                <p:dataList value="#{followerList}" var="follower" itemType="disc">
+                    <a href="/app/profile/#{follower.id}">#{follower.username}</a>
+                </p:dataList>
+            </p:card>
+    </p:row>
+</ui:composition>

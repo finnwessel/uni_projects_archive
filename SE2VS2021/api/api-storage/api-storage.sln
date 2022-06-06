@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-storage", "api-storage\api-storage.csproj", "{6CAECDDB-143E-45AB-AA5F-15CAFA1FAB8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-storage-test", "api-storage-test\api-storage-test.csproj", "{E504E60A-7A91-4D74-9EE7-EB9D188E5282}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CAECDDB-143E-45AB-AA5F-15CAFA1FAB8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CAECDDB-143E-45AB-AA5F-15CAFA1FAB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CAECDDB-143E-45AB-AA5F-15CAFA1FAB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CAECDDB-143E-45AB-AA5F-15CAFA1FAB8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E504E60A-7A91-4D74-9EE7-EB9D188E5282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E504E60A-7A91-4D74-9EE7-EB9D188E5282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E504E60A-7A91-4D74-9EE7-EB9D188E5282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E504E60A-7A91-4D74-9EE7-EB9D188E5282}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

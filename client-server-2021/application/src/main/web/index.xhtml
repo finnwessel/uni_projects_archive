@@ -1,0 +1,69 @@
+<ui:composition template="/components/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <div class="p-d-flex p-jc-center center">
+            <h:panelGroup id="newPostForm">
+                <h:form rendered="#{index.editorVisible}">
+                    <p:textEditor class="editor" widgetVar="editor" value="#{post.new_post.content}" height="150">
+                        <f:facet name="toolbar">
+                            <span class="ql-formats">
+                                <button class="ql-bold"/>
+                                <button class="ql-italic"/>
+                                <button class="ql-strike"/>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-script" value="sub"/>
+                                <button class="ql-script" value="super"/>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-header" value="1"/>
+                                <button class="ql-header" value="2"/>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-list" value="ordered"/>
+                                <button class="ql-list" value="bullet"/>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-link"/>
+                                <button class="ql-image"/>
+                            </span>
+                        </f:facet>
+                    </p:textEditor>
+                    <p:commandButton class="p-my-3" value="Post" update="@form :postList"
+                                     action="#{post.createPost(account.getCurrentAccount().id)}"/>
+                </h:form>
+                <h:form>
+                    <p:commandButton styleClass="ui-button-success" rendered="#{!index.editorVisible}" value="New post+"
+                                     action="#{index.toggleEditorVisible}" update=":newPostForm"/>
+                    <p:commandButton styleClass="ui-button-danger" rendered="#{index.editorVisible}" value="X"
+                                     action="#{index.toggleEditorVisible}" update=":newPostForm"/>
+                </h:form>
+            </h:panelGroup>
+        </div>
+        <div class="p-d-flex p-jc-center center p-mt-5">
+            <h:form>
+                <p:selectOneButton value="#{post.postFilter}">
+                    <f:selectItem itemLabel="All" itemValue="all"/>
+                    <f:selectItem itemLabel="Own" itemValue="own"/>
+                    <f:selectItem itemLabel="Following" itemValue="following"/>
+                    <p:ajax event="change" update=":postList"/>
+                </p:selectOneButton>
+            </h:form>
+        </div>
+        <h:panelGroup id="postList" class="p-flex-column">
+            <ui:repeat var="current_post" value="#{post.getPosts(account.currentAccount.id)}">
+                <ui:include src="components/post.xhtml">
+                    <ui:param name="author_id" value="#{current_post.account.id}"></ui:param>
+                    <ui:param name="author_username" value="#{current_post.account.username}"></ui:param>
+                    <ui:param name="post_id" value="#{current_post.id}"/>
+                    <ui:param name="content" value="#{current_post.content}"/>
+                    <ui:param name="createdAt" value="#{current_post.createdAt}"/>
+                </ui:include>
+            </ui:repeat>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

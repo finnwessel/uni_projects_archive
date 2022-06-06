@@ -1,0 +1,22 @@
+.secondary {
+    background-color: var(--surface-800);
+}
+
+.center {
+    text-align: center;
+}
+
+.editor {
+    max-width: 500px;
+}
+
+.post {
+    min-width: 400px;
+    max-width: 600px;
+    overflow-wrap: break-word;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}

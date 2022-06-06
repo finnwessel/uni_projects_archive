@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+    <title><ui:define name="title">Default title</ui:define></title>
+</h:head>
+
+<h:body class="secondary">
+    <h:outputStylesheet library="css" name="theme.css" />
+    <h:outputStylesheet library="css" name="style.css" />
+    <h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+    <div class="p-badge-success">
+        <h:form>
+            <p:growl id="messages"/>
+            <p:menubar>
+                <c:choose>
+                    <c:when test="#{auth.loggedIn}">
+                        <p:menuitem value="Home" icon="pi pi-fw pi-file" url="/app"/>
+                        <p:menuitem value="Profile" icon="pi pi-fw pi-user" url="/app/profile"/>
+                        <c:if test="#{account.currentAccount ne null and account.currentAccount.id eq 1}">
+                            <p:menuitem value="Admin" icon="pi pi-sliders-v" url="/app/admin"/>
+                        </c:if>
+                    </c:when>
+                    <c:otherwise>
+                        <p:menuitem value="Login" icon="pi pi-fw pi-user" url="/app/login"/>
+                        <p:menuitem value="Register" icon="pi pi-fw pi-user" url="/app/register"/>
+                    </c:otherwise>
+                </c:choose>
+
+                <f:facet name="options">
+                    <c:if test="#{auth.loggedIn}">
+                        <p:commandButton value="Logout"
+                                         icon="pi pi-fw pi-sign-out"
+                                         styleClass="ui-button-info"
+                                         action="#{auth.logout}"
+                        />
+                    </c:if>
+                </f:facet>
+            </p:menubar>
+        </h:form>
+    </div>
+    <div class="p-d-flex">
+        <div class="p-mx-auto p-p-4">
+            <ui:insert name="content"/>
+        </div>
+    </div>
+</h:body>
+
+</html>

@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+}
+
+group 'de.hs-flensburg'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.8.2'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    // Lombok: automated class structure (getter, setter etc..)
+    compileOnly('org.projectlombok:lombok:1.18.22')
+    annotationProcessor('org.projectlombok:lombok:1.18.22')
+    implementation('org.ocpsoft.rewrite:rewrite-servlet:3.5.1.Final')
+    implementation('org.ocpsoft.rewrite:rewrite-config-prettyfaces:3.5.1.Final')
+    compileOnly('javax:javaee-api:8.0.1')
+    compileOnly('javax.faces:javax.faces-api:2.3-pfd')
+    implementation('org.eclipse.persistence:eclipselink:3.0.2')
+    implementation('org.primefaces:primefaces:11.0.0')
+    implementation('org.webjars.npm:primeflex:2.0.0')
+    compileOnly('javax.enterprise:cdi-api:2.0-PFD2')
+    implementation('org.postgresql:postgresql:42.3.1')
+    implementation('javax.validation:validation-api:2.0.1.Final')
+    compileOnly('javax.ws.rs:javax.ws.rs-api:2.1.1')
+    implementation('com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20191001.1')
+    implementation('org.mindrot:jbcrypt:0.4')
+    implementation('com.sun.mail:javax.mail:1.6.2')
+    implementation('commons-io:commons-io:2.6')
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    // JWT Libraries
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2',
+            // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
+            //'org.bouncycastle:bcprov-jdk15on:1.60',
+            'io.jsonwebtoken:jjwt-jackson:0.11.2' // or 'io.jsonwebtoken:jjwt-gson:0.11.2' for gson
+}
+
+test {
+    useJUnitPlatform()
+}

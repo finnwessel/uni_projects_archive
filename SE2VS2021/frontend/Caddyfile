@@ -1,0 +1,35 @@
+localhost:80 {
+	file_server
+}
+
+rabbitmq.localhost:80 {
+    reverse_proxy rabbitmq:15672
+}
+
+auth.localhost:80 {
+    reverse_proxy api-user-management:80
+}
+
+contacts.localhost:80 {
+    reverse_proxy api-contacts:80
+}
+
+events.localhost:80 {
+    reverse_proxy api-events:80
+}
+
+tasks.localhost:80 {
+    reverse_proxy api-tasks:80
+}
+
+logging.localhost:80 {
+    reverse_proxy api-version-logging:80
+}
+
+storage.localhost:80 {
+    reverse_proxy api-storage:80
+}
+
+notifications.localhost:80 {
+    reverse_proxy api-notifications:80
+}
