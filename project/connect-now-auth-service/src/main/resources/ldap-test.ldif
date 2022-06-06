@@ -1,0 +1,50 @@
+version: 1
+
+dn: dc=example,dc=org
+objectClass: dcObject
+objectClass: organization
+dc: example
+o: example
+
+dn: ou=users,dc=example,dc=org
+objectClass: organizationalUnit
+ou: users
+
+dn: cn=ben,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: ben
+sn: Bensmeyer
+uid: ben
+givenName: Ben
+mail: ben@example.com
+ou: !:M:VERW:STUD:NWMITAR
+userPassword: 12345678
+
+dn: cn=admin,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: admin
+sn: Regler
+uid: admin
+givenName: Admin
+mail: admin@example.com
+userPassword: 12345678
+
+dn: cn=great_albus,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: great_albus
+sn: Dumbeldore
+uid: great_albus
+givenName: Albus
+ou: !:M:VERW:NWMITAR:PROF
+mail: great_albus@mail.de
+userPassword: 12345678
+

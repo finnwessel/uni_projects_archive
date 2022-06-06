@@ -1,0 +1,73 @@
+{
+  "properties": [
+    {
+      "name": "jwt.issuer",
+      "type": "java.lang.String",
+      "description": "Defines JWT Issuer."
+    },
+    {
+      "name": "jwt.accessTokenExpirationInMin",
+      "type": "java.lang.String",
+      "description": "Defines access token expiration in minutes."
+    },
+    {
+      "name": "jwt.refreshTokenExpirationInMin",
+      "type": "java.lang.String",
+      "description": "Defines refresh token expiration in minutes."
+    },
+    {
+      "name": "jwt.privateKeyPath",
+      "type": "java.lang.String",
+      "description": "Defines private key path."
+    },
+    {
+      "name": "jwt.publicKeyPath",
+      "type": "java.lang.String",
+      "description": "Defines public key path."
+    },
+    {
+      "name": "auth.service.cors.allowed-origin",
+      "type": "java.lang.String",
+      "description": "Defines the allowed cors origin."
+    },
+    {
+      "name": "auth.service.cors.allowed-headers",
+      "type": "java.lang.String",
+      "description": "Defines the allowed cors headers."
+    },
+    {
+      "name": "auth.service.cors.allowed-methods",
+      "type": "java.lang.String",
+      "description": "Defines the allowed cors methods."
+    },
+    {
+      "name": "ldap.username",
+      "type": "java.lang.String",
+      "description": "Description for ldap.username."
+    },
+    {
+      "name": "ldap.firstName",
+      "type": "java.lang.String",
+      "description": "Description for ldap.firstName."
+    },
+    {
+      "name": "ldap.lastName",
+      "type": "java.lang.String",
+      "description": "Description for ldap.lastName."
+    },
+    {
+      "name": "ldap.role",
+      "type": "java.lang.String",
+      "description": "Description for ldap.role."
+    },
+    {
+      "name": "ldap.email",
+      "type": "java.lang.String",
+      "description": "Description for ldap.email."
+    },
+    {
+      "name": "ldap.password",
+      "type": "java.lang.String",
+      "description": "Description for ldap.password."
+    }
+  ] }

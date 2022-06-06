@@ -1,0 +1,33 @@
+image: openjdk:18
+
+pipelines:
+  default:
+    - step:
+        runs-on:
+          - self.hosted
+          - linux
+        caches:
+          - maven
+        name: 'Test'
+        script:
+          - ./mvnw test
+  
+  branches:
+    develop:
+      - step:
+          runs-on:
+            - self.hosted
+            - linux
+          caches:
+            - docker
+            - maven
+          name: 'Deploy to staging'
+          script:
+            - ./mvnw clean install -DskipTests
+            - docker login -u $DOCKER_REGISTRY_USER -p $DOCKER_REGISTRY_PASSWORD $DOCKER_REGISTRY_URL
+            - docker build -t $DOCKER_REGISTRY_URL/auth-service:latest .
+            - docker push $DOCKER_REGISTRY_URL/auth-service
+          services:
+            - docker
+          after-script:
+            - if [[ $BITBUCKET_EXIT_CODE -eq 0 ]]; then curl $REDEPLOY_AUTH_SERVICE --header "X-Hub-Signature:$REDEPLOY_AUTH_SECRET" ; else echo "Step failed"; fi

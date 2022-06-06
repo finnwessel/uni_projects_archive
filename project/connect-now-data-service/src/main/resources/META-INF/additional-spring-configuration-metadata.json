@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "auth.service.cors.allowed-origin",
+      "type": "java.lang.String",
+      "description": "Defines the allowed cors origin."
+    },
+    {
+      "name": "auth.service.cors.allowed-headers",
+      "type": "java.lang.String",
+      "description": "Defines the allowed cors headers."
+    },
+    {
+      "name": "auth.service.cors.allowed-methods",
+      "type": "java.lang.String",
+      "description": "Defines the allowed cors methods."
+    }
+] }
